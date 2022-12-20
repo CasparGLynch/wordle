@@ -93,7 +93,7 @@ while running:
         screen.blit(text_play, text_rect_play)
     elif current_screen == lose_screen:
         font = pygame.font.Font(None, 36)
-        text_play = font.render('You Loose!', True, (255, 255, 255))
+        text_play = font.render(f'You Loose! Word was {actual_word}', True, (255, 255, 255))
         text_rect_play = text_play.get_rect()
         text_rect_play.center = (400, 300)
         screen.blit(text_play, text_rect_play)
