@@ -22,7 +22,16 @@ def game(screen, input_text, font, attempt, past_answers):
                 input_rect.center = (x + 25, y + 25)
                 screen.blit(input_surface, input_rect)
             elif row < attempt:
-                past_answer_surface = font.render(past_answers[row][col][0], True, (50, int(f'{past_answers[row][col][1]}00'), 0))
+                past_answer_surface = None
+                if past_answers[row][col][1] == 0:
+                    past_answer_surface = font.render(past_answers[row][col][0], True,
+                                                      (200, 0, 0))
+                elif past_answers[row][col][1] == 1:
+                    past_answer_surface = font.render(past_answers[row][col][0], True,
+                                                      (200, 120, 0))
+                else:
+                    past_answer_surface = font.render(past_answers[row][col][0], True,
+                                                      (0, 200, 0))
                 past_rect = past_answer_surface.get_rect()
                 past_rect.center = (x + 25, y + 25)
                 screen.blit(past_answer_surface, past_rect)
