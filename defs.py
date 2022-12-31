@@ -6,9 +6,9 @@ cell_size = (50, 50)
 def compare(correct: list, submitted: list):
     ret_list = []
     for i in range(5):
-        if correct[i] == submitted[i]:
+        if correct[i].upper() == submitted[i].upper():
             ret_list.append(2)
-        elif submitted[i] in correct:
+        elif submitted[i].upper() in correct:
             ret_list.append(1)
         else:
             ret_list.append(0)

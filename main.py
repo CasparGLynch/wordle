@@ -12,7 +12,7 @@ pygame.init()
 # Extract the list of 5-letter words from the response
 past_answers = [[], [], [], [], [], [], []]
 
-actual_word = get_random_word()
+actual_word = get_random_word().upper()
 # Set the window size
 
 font = pygame.font.Font(None, 36)
@@ -42,7 +42,7 @@ while running:
                 running = False
             elif (pygame.K_a <= event.key <= pygame.K_z) & (len(word) < 5):
                 # Append the letter to the input text
-                input_text += chr(event.key)
+                input_text += chr(event.key).upper()
                 word.append(chr(event.key))
                 # Check if the key pressed was backspace
             elif (event.key == pygame.K_BACKSPACE) & (len(word) > 0):
@@ -56,7 +56,7 @@ while running:
                 if 0 in compared or 1 in compared:
                     # saves the answer in past_answers
                     for i in range(5):
-                        past_answers[attempt].append((input_text[i], compared[i]))
+                        past_answers[attempt].append((input_text[i].upper(), compared[i]))
                     attempt += 1
                 else:
                     current_screen = win_screen
